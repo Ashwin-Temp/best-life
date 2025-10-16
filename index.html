@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Dearest Aany!</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <style>
+        /* --- Universal Styles & Cute Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-color: #fde7f0; /* Softer Light Pink */
+            --secondary-color: #e91e63; /* Deeper Hot Pink */
+            --accent-color: #d4af37;  /* A richer, elegant Gold */
+            --text-color: #444;
+            --heart-color: #ff7999;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif; background-color: #fffafc;
+            color: var(--text-color); margin: 0; padding: 0; overflow-x: hidden;
+            background: linear-gradient(-45deg, #fde7f0, #fff3f8, #fef6f9, #fffafc);
+            background-size: 400% 400%; animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+        }
+
+        /* --- Floating Hearts Animation --- */
+        .heart {
+            position: fixed; top: -10vh; font-size: 1.5rem; color: var(--heart-color);
+            animation: fall 12s infinite linear; opacity: 0; z-index: 9999;
+            will-change: transform, opacity;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- General Styling --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 20px; }
+        h1, h2 { font-family: 'Dancing Script', cursive; color: var(--secondary-color); text-align: center; }
+        h2 { font-size: 3.5rem; margin-bottom: 50px; text-shadow: 1px 1px 5px rgba(0,0,0,0.1); }
+
+        /* --- ENHANCED Header Section --- */
+        .header {
+            background-image: url('https://i.pinimg.com/originals/f6/c3/a6/f6c3a61d67aa81577a79e49dda2fe3b7.gif');
+            background-size: cover; padding: 80px 20px 40px 20px; text-align: center; color: white;
+            position: relative; border-bottom: 5px solid var(--primary-color);
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; min-height: 80vh;
+        }
+        .header h1 { font-size: 6rem; margin: 0; color: red; animation: glow 2.5s ease-in-out infinite; }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6; }
+            50% { text-shadow: 0 0 15px #fff, 0 0 25px #ff4da6; }
+        }
+
+        .header p { font-size: 1.8rem; text-shadow: 1px 1px 5px rgba(255,255,255,0.5); color: black; margin-top: 10px; }
+
+        .start-heart {
+            font-size: 3rem; margin-top: 40px; cursor: pointer;
+            animation: pulse-heart 2s infinite; transition: transform 0.3s ease;
+        }
+        .start-heart:hover { transform: scale(1.2); }
+        @keyframes pulse-heart {
+            0% { transform: scale(1); text-shadow: 0 0 10px #ff4da6; }
+            50% { transform: scale(1.1); text-shadow: 0 0 20px #ff4da6; }
+            100% { transform: scale(1); text-shadow: 0 0 10px #ff4da6; }
+        }
+
+        /* --- Content Sections --- */
+        .section {
+            padding: 80px 20px; border-bottom: 2px solid var(--primary-color);
+            opacity: 0; transform: translateY(50px); transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+        .section:last-of-type { border-bottom: none; }
+        .section.visible { opacity: 1; transform: translateY(0); }
+        
+        /* --- Relationship Counter --- */
+        .counter-section { background: none; }
+        .counter-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .counter-box {
+            background: white; padding: 20px; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1); text-align: center; min-width: 100px;
+            border: 1px solid var(--primary-color);
+        }
+        .counter-box .number { font-size: 3rem; font-weight: 600; color: var(--secondary-color); }
+        .counter-box .label { font-size: 1rem; color: #777; }
+        .counter-separator { font-size: 3rem; font-weight: 600; color: var(--secondary-color); padding: 0 10px; transform: translateY(-10px); }
+        
+        /* --- Swiper Carousel --- */
+        .swiper { width: 100%; padding-top: 50px; padding-bottom: 50px; }
+        .swiper-slide {
+            background-position: center; background-size: contain; background-repeat: no-repeat;
+            background-color: #fffafc; width: 320px; height: 320px; border-radius: 25px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 6px solid white;
+        }
+        .swiper-button-next, .swiper-button-prev { color: var(--secondary-color) !important; }
+        .swiper-pagination-bullet-active { background: var(--secondary-color) !important; }
+
+        /* --- Letter Section --- */
+        .letter {
+            background-color: white; padding: 50px; border-radius: 20px;
+            border-left: 7px solid var(--secondary-color); box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+            font-size: 1.15rem; line-height: 2;
+        }
+        
+        /* --- Seven Promises Carousel --- */
+        .promise-slide {
+            background: white; border-radius: 20px; padding: 50px;
+            box-sizing: border-box; width: 85% !important; max-width: 550px;
+            height: auto !important; text-align: center;
+            box-shadow: 0 10px 40px rgba(233, 30, 99, 0.1); position: relative;
+            overflow: hidden; margin: 10px;
+        }
+        .promise-number {
+            position: absolute; top: -20px; right: 10px; font-size: 12rem;
+            font-family: 'Dancing Script', cursive; color: var(--primary-color);
+            opacity: 0.7; z-index: 1;
+        }
+        .promise-content { position: relative; z-index: 2; }
+        .promise-content h3 {
+            font-family: 'Poppins', sans-serif; font-weight: 600;
+            color: var(--secondary-color); font-size: 1.6rem; margin-bottom: 15px;
+        }
+        .telugu-vow {
+            font-size: 1.3rem !important; font-style: italic;
+            color: var(--accent-color); margin-bottom: 20px;
+        }
+        .promise-content p { font-size: 1.1rem; line-height: 1.9; }
+
+        /* --- Footer --- */
+        .footer { text-align: center; padding: 40px 20px; background-color: var(--primary-color); color: var(--secondary-color); font-size: 1.5rem; font-family: 'Dancing Script', cursive; }
+        .footer-heart { display: inline-block; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+        
+        /* ======================================= */
+        /* === SECRET MESSAGE SECTION (NEW) ====== */
+        /* ======================================= */
+        .secret-button-container { text-align: center; margin-top: 40px; }
+        .secret-button {
+            background-color: var(--secondary-color); color: white; border: none;
+            padding: 15px 30px; border-radius: 50px; font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem; font-weight: 600; cursor: pointer;
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
+            animation: pulse-heart 2.5s infinite; transition: transform 0.3s ease;
+        }
+        .secret-button:hover { transform: scale(1.1) translateY(-5px); }
+        .modal {
+            display: none; position: fixed; z-index: 10001;
+            left: 0; top: 0; width: 100%; height: 100%;
+            overflow: auto; background-color: rgba(0,0,0,0.6); animation: fadeIn 0.5s;
+        }
+        .modal-content {
+            background-color: #fffafc; margin: 15% auto; padding: 40px;
+            border: 1px solid #888; width: 80%; max-width: 600px; border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2); position: relative; font-family: 'Poppins', sans-serif;
+        }
+        .modal-content h2 { text-align: center; margin-top: 0; }
+        .modal-content p { font-size: 1.1rem; line-height: 1.8; color: #444; }
+        .close-button {
+            color: #aaa; float: right; font-size: 28px; font-weight: bold; transition: color 0.3s;
+        }
+        .close-button:hover, .close-button:focus { color: black; text-decoration: none; cursor: pointer; }
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+
+        /* ======================================================= */
+        /* ============ RESPONSIVE STYLES (MOBILE) ================ */
+        /* ======================================================= */
+        @media (max-width: 768px) {
+            h2 { font-size: 2.5rem; }
+            .header h1 { font-size: 3.5rem; }
+            .header p { font-size: 1.3rem; }
+            .section { padding: 60px 15px; }
+            .container { padding: 10px; }
+            .counter-box { min-width: 80px; padding: 15px; }
+            .counter-box .number { font-size: 2rem; }
+            .counter-separator { font-size: 2rem; transform: translateY(-5px); }
+            #carousel .swiper { padding-top: 20px; padding-bottom: 40px; }
+            .mySwiper .swiper-slide { width: 260px; height: 260px; }
+            .mySwiper .swiper-button-next, .mySwiper .swiper-button-prev { transform: scale(0.7); }
+            .mySwiper .swiper-pagination { bottom: 0px !important; display: none; }
+            .letter { padding: 30px; font-size: 1rem; }
+            .promise-slide { padding: 30px; width: 90% !important; }
+            .promise-number { font-size: 7rem; top: -10px; }
+            .promise-content h3 { font-size: 1.3rem; }
+            .telugu-vow { font-size: 1.1rem !important; }
+            .promise-content p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hearts-container"></div>
+
+    <header class="header">
+        <h1>Happy Birthday, Aany!</h1>
+        <p>To my everything, my universe, my forever.</p>
+        <div class="start-heart" id="start-journey-button">❤️</div>
+    </header>
+
+    <section class="section counter-section" id="journey-start">
+        <h2>Our Beautiful Journey till now...</h2>
+        <div class="counter-container">
+            <div class="counter-box"><div id="years" class="number">0</div><div class="label">Years</div></div>
+            <div class="counter-separator">:</div>
+            <div class="counter-box"><div id="months" class="number">0</div><div class="label">Months</div></div>
+            <div class="counter-separator">:</div>
+            <div class="counter-box"><div id="days" class="number">0</div><div class="label">Days</div></div>
+            <div class="counter-separator">:</div>
+            <div class="counter-box"><div id="hours" class="number">0</div><div class="label">Hours</div></div>
+            <div class="counter-separator">:</div>
+            <div class="counter-box"><div id="minutes" class="number">0</div><div class="label">Minutes</div></div>
+            <div class="counter-separator">:</div>
+            <div class="counter-box"><div id="seconds" class="number">0</div><div class="label">Seconds</div></div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section" id="carousel">
+            <h2>A Gallery of Our Smiles</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="gallery-wrapper"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
+        <section class="section" id="letter">
+            <h2>A Letter to My Love</h2>
+            <div class="letter">
+                <p>My Dearest Aany,</p>
+                <p>Today, the world shines a little brighter, the birds sing a sweeter song, and my heart beats a little faster – because today is the day my universe was born. Happy Birthday, my love.</p>
+                <p>I remember the 5th of May, 2024, not as a date on a calendar, but as the moment my world shifted on its axis. Before you, my life was a quiet melody; with you, it became a breathtaking symphony. You are the masterpiece I never knew I was searching for, the missing piece of my soul I didn't realize was gone.</p>
+                <p>Your laughter is the soundtrack to my happiest memories, and your smile is a sunrise that can chase away any darkness. You have a kindness that is a gentle magic, making everything and everyone around you better. Watching you chase your dreams inspires me, and being the one you share your quiet moments with is the greatest honor of my life.</p>
+                <p>With every passing second we've shared, my love for you has grown deeper, richer, and more certain. You are my greatest adventure and my safest harbor. Today, I celebrate all of you – your strength, your heart, your beautiful spirit. I hope your day is as radiant and wonderful as you are.</p>
+                <p>I can't wait to see what our next chapter holds. My only wish is that I get to spend all of my tomorrows loving you.</p>
+                <p>Forever and always yours,</p>
+                <p>-Ashwin</p>
+
+                <div class="secret-button-container">
+                    <button id="secret-trigger-button" class="secret-button">Last Thing (click here) ❤️</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="promises">
+            <h2>Our Seven Steps</h2>
+            <div class="swiper promisesSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide promise-slide">
+                        <div class="promise-number">1</div>
+                        <div class="promise-content">
+                            <h3>The First Vow</h3> <p class="telugu-vow">ఓం ఏకమిషే విష్ణుత్వా నయతు</p> <p>I promise to always nourish you and our life together, filling our home with happiness, respect, and abundance.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide promise-slide">
+                        <div class="promise-number">2</div>
+                        <div class="promise-content">
+                            <h3>The Second Vow</h3> <p class="telugu-vow">ఓం ద్వే ఊర్జే విష్ణుత్వా నయతు</p> <p>I promise to be your strength in times of weakness, to protect our love from every challenge, and to stand by you always.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide promise-slide">
+                        <div class="promise-number">3</div>
+                        <div class="promise-content">
+                            <h3>The Third Vow</h3> <p class="telugu-vow">ఓం త్రీణి వ్రతాయ విష్ణుత్వా నయతు</p> <p>I promise to grow with you, celebrate our successes, and build a future that is rich in love, laughter, and shared dreams.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide promise-slide">
+                        <div class="promise-number">4</div>
+                        <div class="promise-content">
+                            <h3>The Fourth Vow</h3> <p class="telugu-vow">ఓం చత్వారి మయోభవాయ విష్ణుత్వా నయతు</p> <p>I promise that you will always be the one who completes me. I will cherish you and fill our days with harmony and joy.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide promise-slide">
+                        <div class="promise-number">5</div>
+                        <div class="promise-content">
+                            <h3>The Fifth Vow</h3> <p class="telugu-vow">ఓం పంచ పశుభ్యో విష్ణుత్వా నయతు</p> <p>I promise to share life's entire journey with you, creating beautiful memories and being your most loving and faithful partner.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide promise-slide">
+                        <div class="promise-number">6</div>
+                        <div class="promise-content">
+                            <h3>The Sixth Vow</h3> <p class="telugu-vow">ఓం షడ్భ్యో విష్ణుత్వా నయతు</p> <p>I promise to be with you through all of life's seasons, in sickness and in health, in joy and in sorrow, no matter what lies ahead.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide promise-slide">
+                        <div class="promise-number">7</div>
+                        <div class="promise-content">
+                            <h3>The Seventh Vow</h3> <p class="telugu-vow">ఓం సప్తే సప్తభ్యో హోతాభ్యో విష్ణుత్వా నయతు</p> <p>I promise to be not just your partner, but your best friend for eternity. Our love is sacred, and you are my soulmate.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Crafted with an endless ocean of love for my one and only, Aany <span class="footer-heart">❤️</span></p>
+    </footer>
+
+    <div id="secret-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>The Girl I Fell in Love With</h2>
+        <p>Hey... just one more thing.</p>
+        <p>Before I fell in love with you, I fell in love with your dreams. The house for your family, the restaurant, the places you wanted to see, the life you wanted to build. But even more than that, I fell in love with the fighter I saw the brilliant, ambitious girl who refused to let anything stop her.</p>
+        <p>I watched you face so much—family pressure, financial worries—but you never complained. You never gave up. You just solved every problem, one by one. That strength is the most beautiful thing about you.</p>
+        <p>Life is pulling you in a million directions right now, I know. <b>But my biggest fear is that you'll try to "solve" this problem by sacrificing the one thing that matters most: that is your own happiness and importantly you will loose me.</b> Please, promise me you'll never lose sight of *PRAVALIKA*. She deserves to see those dreams come true.</p>
+        <p>Whatever the future holds, know that my love for you will always include my love for your dreams. I want to help you fight for them. Everything I have and everything I am will always be yours. I will forever be your biggest fan.</p>
+        <p>Please, be the hero of your own story, Pravalika</p>
+        <p style="text-align: right; font-weight: bold;">- Ashwin</p>
+    </div>
+</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // --- JavaScript for all the magic ---
+
+        // 1. Falling Hearts Animation
+        const heartsContainer = document.getElementById('hearts-container');
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart'); heart.innerHTML = '&#10084;';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 7 + 5 + 's';
+            heart.style.opacity = Math.random();
+            heart.style.fontSize = Math.random() * 1 + 0.5 + 'rem';
+            heartsContainer.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 12000);
+        }
+        setInterval(createHeart, 350);
+
+        // 2. Relationship Counter
+        const startDate = new Date('2024-05-05T17:00:00');
+        function updateCounter() {
+            const now = new Date(); let diff = now - startDate;
+            let s = Math.floor(diff / 1000) % 60; let m = Math.floor(diff / (1000 * 60)) % 60;
+            let totalHours = Math.floor(diff / (1000 * 60 * 60)); let h = totalHours % 24;
+            let tempDate = new Date(startDate); let years = now.getFullYear() - tempDate.getFullYear();
+            let months = now.getMonth() - tempDate.getMonth(); let days = now.getDate() - tempDate.getDate();
+            if (months < 0 || (months === 0 && days < 0)) { years--; months += (months < 0 ? 12 : 0); }
+            if (days < 0) {
+                let prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += prevMonth.getDate(); months--;
+                if (months < 0) { months = 11; years--; }
+            }
+            if (now.getHours() < startDate.getHours() || (now.getHours() === startDate.getHours() && now.getMinutes() < startDate.getMinutes())){
+                if(days <= 0){ let prevMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += prevMonth.getDate() -1; months--; } else { days--; }
+            }
+            document.getElementById('years').innerText = years; document.getElementById('months').innerText = months;
+            document.getElementById('days').innerText = days; document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+        }
+        setInterval(updateCounter, 1000); updateCounter();
+
+        // 3. DYNAMIC GALLERY LOADER & SWIPER INITIALIZATION
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryWrapper = document.getElementById('gallery-wrapper');
+            function findImageUrl(picNumber) {
+                return new Promise((resolve) => {
+                    const jpgUrl = `images/pic${picNumber}.jpg`; const pngUrl = `images/pic${picNumber}.png`;
+                    const img = new Image(); img.onload = () => resolve(jpgUrl); 
+                    img.onerror = () => {
+                        const pngImg = new Image(); pngImg.onload = () => resolve(pngUrl);
+                        pngImg.onerror = () => resolve(null); pngImg.src = pngUrl;
+                    };
+                    img.src = jpgUrl;
+                });
+            }
+            const imagePromises = []; for (let i = 1; i <= 42; i++) { imagePromises.push(findImageUrl(i)); }
+            Promise.all(imagePromises).then(urls => {
+                urls.forEach(url => {
+                    if (url) { 
+                        const slide = document.createElement('div'); slide.className = 'swiper-slide';
+                        slide.style.backgroundImage = `url('${url}')`; galleryWrapper.appendChild(slide);
+                    }
+                });
+                var swiper = new Swiper(".mySwiper", {
+                    effect: "coverflow", grabCursor: true, centeredSlides: true,
+                    slidesPerView: "auto", loop: true,
+                    autoplay: { delay: 3000, disableOnInteraction: false, },
+                    coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true, },
+                    pagination: { el: ".swiper-pagination", },
+                    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev", },
+                });
+            });
+        });
+
+        // 4. Initialize Swiper Carousel for Promises
+        var promisesSwiper = new Swiper(".promisesSwiper", {
+            effect: "slide", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
+            pagination: { el: ".swiper-pagination", clickable: true, },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev", },
+        });
+        
+        // 5. Fade-in sections on scroll
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible'); observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        sections.forEach(section => { observer.observe(section); });
+        
+        // 6. Click to Scroll from Header Heart
+        document.getElementById('start-journey-button').addEventListener('click', function() {
+            document.getElementById('journey-start').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // 7. NEW: Secret Modal Logic
+        const modal = document.getElementById("secret-modal");
+        const triggerButton = document.getElementById("secret-trigger-button");
+        const closeButton = document.querySelector(".close-button");
+
+        triggerButton.onclick = function() { modal.style.display = "block"; }
+        closeButton.onclick = function() { modal.style.display = "none"; }
+        window.onclick = function(event) {
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
+    </script>
+</body>
+</html>
