@@ -32,6 +32,22 @@
             0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
         }
 
+        /* --- NEW: Preloader CSS --- */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #fffafc; z-index: 10002; display: flex;
+            justify-content: center; align-items: center; flex-direction: column;
+            transition: opacity 0.75s ease;
+        }
+        #preloader .preloader-heart {
+            font-size: 4rem; color: var(--secondary-color);
+            animation: pulse 1.5s infinite;
+        }
+        #preloader p {
+            font-family: 'Dancing Script', cursive; font-size: 1.8rem;
+            color: var(--text-color); margin-top: 20px;
+        }
+
         /* --- Floating Hearts Animation --- */
         .heart {
             position: fixed; top: -10vh; font-size: 1.5rem; color: var(--heart-color);
@@ -143,9 +159,7 @@
         .footer-heart { display: inline-block; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
         
-        /* ======================================= */
-        /* === SECRET MESSAGE SECTION (NEW) ====== */
-        /* ======================================= */
+        /* --- SECRET MESSAGE SECTION --- */
         .secret-button-container { text-align: center; margin-top: 40px; }
         .secret-button {
             background-color: var(--secondary-color); color: white; border: none;
@@ -173,9 +187,7 @@
         .close-button:hover, .close-button:focus { color: black; text-decoration: none; cursor: pointer; }
         @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
-        /* ======================================================= */
-        /* ============ RESPONSIVE STYLES (MOBILE) ================ */
-        /* ======================================================= */
+        /* --- RESPONSIVE STYLES (MOBILE) --- */
         @media (max-width: 768px) {
             h2 { font-size: 2.5rem; }
             .header h1 { font-size: 3.5rem; }
@@ -199,6 +211,11 @@
     </style>
 </head>
 <body>
+
+    <div id="preloader">
+        <div class="preloader-heart">❤️</div>
+        <p>Loading Our Memories...</p>
+    </div>
 
     <div id="hearts-container"></div>
 
@@ -230,7 +247,6 @@
             <h2>A Gallery of Our Smiles</h2>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper" id="gallery-wrapper"></div>
-                <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
@@ -241,15 +257,14 @@
             <div class="letter">
                 <p>My Dearest Aany,</p>
                 <p>Today, the world shines a little brighter, the birds sing a sweeter song, and my heart beats a little faster – because today is the day my universe was born. Happy Birthday, my love.</p>
-                <p>I remember the 5th of May, 2024, not as a date on a calendar, but as the moment my world shifted on its axis. Before you, my life was a quiet melody; with you, it became a breathtaking symphony. You are the masterpiece I never knew I was searching for, the missing piece of my soul I didn't realize was gone.</p>
-                <p>Your laughter is the soundtrack to my happiest memories, and your smile is a sunrise that can chase away any darkness. You have a kindness that is a gentle magic, making everything and everyone around you better. Watching you chase your dreams inspires me, and being the one you share your quiet moments with is the greatest honor of my life.</p>
+                <p>I remember the 5th of May, 2024, not as a date on a calendar, but as the moment my world shifted. Before you, my life was a silent melody; with you, it became a breathtaking symphony. You are the masterpiece I never knew I was searching for, the missing piece of my soul I didn't realize was gone.</p>
+                <p>Your laughter is the soundtrack to my happiest memories, and your smile is a sunrise that can chase away any darkness. You have a kindness that is a gentle magic, making everything and everyone around you better. Being the one you share your quiet moments with is the greatest honor of my life.</p>
                 <p>With every passing second we've shared, my love for you has grown deeper, richer, and more certain. You are my greatest adventure and my safest harbor. Today, I celebrate all of you – your strength, your heart, your beautiful spirit. I hope your day is as radiant and wonderful as you are.</p>
-                <p>I can't wait to see what our next chapter holds. My only wish is that I get to spend all of my tomorrows loving you.</p>
                 <p>Forever and always yours,</p>
                 <p>-Ashwin</p>
 
                 <div class="secret-button-container">
-                    <button id="secret-trigger-button" class="secret-button">Last Thing (click here) ❤️</button>
+                    <button id="secret-trigger-button" class="secret-button">Secret here... ❤️</button>
                 </div>
             </div>
         </section>
@@ -261,47 +276,46 @@
                     <div class="swiper-slide promise-slide">
                         <div class="promise-number">1</div>
                         <div class="promise-content">
-                            <h3>The First Vow</h3> <p class="telugu-vow">ఓం ఏకమిషే విష్ణుత్వా నయతు</p> <p>I promise to always nourish you and our life together, filling our home with happiness, respect, and abundance.</p>
+                            <h3>The First Vow</h3> <p class="telugu-vow"><b>ఓం ఏకమిషే విష్ణుత్వా నయతు</b></p> <p>I promise to always nourish you and our life together, filling our home with happiness, respect, and abundance.</p>
                         </div>
                     </div>
                     <div class="swiper-slide promise-slide">
                         <div class="promise-number">2</div>
                         <div class="promise-content">
-                            <h3>The Second Vow</h3> <p class="telugu-vow">ఓం ద్వే ఊర్జే విష్ణుత్వా నయతు</p> <p>I promise to be your strength in times of weakness, to protect our love from every challenge, and to stand by you always.</p>
+                            <h3>The Second Vow</h3> <p class="telugu-vow"><b>ఓం ద్వే ఊర్జే విష్ణుత్వా నయతు</b></p> <p>I promise to be your strength in times of weakness, to protect our love from every challenge, and to stand by you always.</p>
                         </div>
                     </div>
                     <div class="swiper-slide promise-slide">
                         <div class="promise-number">3</div>
                         <div class="promise-content">
-                            <h3>The Third Vow</h3> <p class="telugu-vow">ఓం త్రీణి వ్రతాయ విష్ణుత్వా నయతు</p> <p>I promise to grow with you, celebrate our successes, and build a future that is rich in love, laughter, and shared dreams.</p>
+                            <h3>The Third Vow</h3> <p class="telugu-vow"><b>ఓం త్రీణి వ్రతాయ విష్ణుత్వా నయతు</b></p> <p>I promise to grow with you, celebrate our successes, and build a future that is rich in love, laughter, and shared dreams.</p>
                         </div>
                     </div>
                     <div class="swiper-slide promise-slide">
                         <div class="promise-number">4</div>
                         <div class="promise-content">
-                            <h3>The Fourth Vow</h3> <p class="telugu-vow">ఓం చత్వారి మయోభవాయ విష్ణుత్వా నయతు</p> <p>I promise that you will always be the one who completes me. I will cherish you and fill our days with harmony and joy.</p>
+                            <h3>The Fourth Vow</h3> <p class="telugu-vow"><b>ఓం చత్వారి మయోభవాయ విష్ణుత్వా నయతు</b></p> <p>I promise that you will always be the one who completes me. I will cherish you and fill our days with harmony and joy.</p>
                         </div>
                     </div>
                     <div class="swiper-slide promise-slide">
                         <div class="promise-number">5</div>
                         <div class="promise-content">
-                            <h3>The Fifth Vow</h3> <p class="telugu-vow">ఓం పంచ పశుభ్యో విష్ణుత్వా నయతు</p> <p>I promise to share life's entire journey with you, creating beautiful memories and being your most loving and faithful partner.</p>
+                            <h3>The Fifth Vow</h3> <p class="telugu-vow"><b>ఓం పంచ పశుభ్యో విష్ణుత్వా నయతు</b></p> <p>I promise to share life's entire journey with you, creating beautiful memories and being your most loving and faithful partner.</p>
                         </div>
                     </div>
                     <div class="swiper-slide promise-slide">
                         <div class="promise-number">6</div>
                         <div class="promise-content">
-                            <h3>The Sixth Vow</h3> <p class="telugu-vow">ఓం షడ్భ్యో విష్ణుత్వా నయతు</p> <p>I promise to be with you through all of life's seasons, in sickness and in health, in joy and in sorrow, no matter what lies ahead.</p>
+                            <h3>The Sixth Vow</h3> <p class="telugu-vow"><b>ఓం షడ్భ్యో విష్ణుత్వా నయతు</b></p> <p>I promise to be with you through all of life's seasons, in sickness and in health, in joy and in sorrow, no matter what lies ahead.</p>
                         </div>
                     </div>
                     <div class="swiper-slide promise-slide">
                         <div class="promise-number">7</div>
                         <div class="promise-content">
-                            <h3>The Seventh Vow</h3> <p class="telugu-vow">ఓం సప్తే సప్తభ్యో హోతాభ్యో విష్ణుత్వా నయతు</p> <p>I promise to be not just your partner, but your best friend for eternity. Our love is sacred, and you are my soulmate.</p>
+                            <h3>The Seventh Vow</h3> <p class="telugu-vow"><b>ఓం సప్తే సప్తభ్యో హోతాభ్యో విష్ణుత్వా నయతు</b></p> <p>I promise to be not just your partner, but your best friend for eternity. Our love is sacred, and you are my soulmate.</p>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
@@ -313,22 +327,28 @@
     </footer>
 
     <div id="secret-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>The Girl I Fell in Love With</h2>
-        <p>Hey... just one more thing.</p>
-        <p>Before I fell in love with you, I fell in love with your dreams. The house for your family, the restaurant, the places you wanted to see, the life you wanted to build. But even more than that, I fell in love with the fighter I saw the brilliant, ambitious girl who refused to let anything stop her.</p>
-        <p>I watched you face so much—family pressure, financial worries—but you never complained. You never gave up. You just solved every problem, one by one. That strength is the most beautiful thing about you.</p>
-        <p>Life is pulling you in a million directions right now, I know. <b>But my biggest fear is that you'll try to "solve" this problem by sacrificing the one thing that matters most: that is your own happiness and importantly you will loose me.</b> Please, promise me you'll never lose sight of *PRAVALIKA*. She deserves to see those dreams come true.</p>
-        <p>Whatever the future holds, know that my love for you will always include my love for your dreams. I want to help you fight for them. Everything I have and everything I am will always be yours. I will forever be your biggest fan.</p>
-        <p>Please, be the hero of your own story, Pravalika</p>
-        <p style="text-align: right; font-weight: bold;">- Ashwin</p>
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>The Girl I Fell in Love With</h2>
+            <p>Before I fell in love with you, I fell in love with your dreams. The house for your family, the restaurant, the life you wanted to build. But even more, I fell in love with the brilliant fighter I saw.</p>
+            <p>I watched you face so much—family pressure, financial worries—but you never complained. You just solved every problem, one by one. That strength is the most beautiful thing about you.</p>
+            <p>My biggest fear is that you'll try to "solve" this problem by sacrificing the one thing that matters most: your own happiness. Because if you lose yourself, I'll lose you too. Please, promise me you'll never lose sight of *PRAVALIKA*. She deserves to see those dreams come true.</p>
+            <p>Whatever the future holds, my love for you will always include my love for your dreams. I want to help you fight for them. Everything I have and everything I am will always be yours. I will forever be your biggest fan.</p>
+            <p>Please, be the hero of your own story, Pravalika.</p>
+            <p style="text-align: right; font-weight: bold;">- Ashwin</p>
+        </div>
     </div>
-</div>
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // --- JavaScript for all the magic ---
+        // --- NEW: Preloader JavaScript Logic ---
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 750); // Match this to the CSS transition time
+        });
 
         // 1. Falling Hearts Animation
         const heartsContainer = document.getElementById('hearts-container');
@@ -424,7 +444,7 @@
             document.getElementById('journey-start').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // 7. NEW: Secret Modal Logic
+        // 7. Secret Modal Logic
         const modal = document.getElementById("secret-modal");
         const triggerButton = document.getElementById("secret-trigger-button");
         const closeButton = document.querySelector(".close-button");
