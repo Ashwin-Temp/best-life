@@ -469,7 +469,7 @@
             const galleryWrapper = document.getElementById('gallery-wrapper');
             function findImageUrl(picNumber) {
                 return new Promise((resolve) => {
-                    const jpgUrl = `images/pic${picNumber}.jpg`; const pngUrl = `images/pic${picNumber}.jpeg`;
+                    const jpgUrl = `images/pic${picNumber}.jpeg`; const pngUrl = `images/pic${picNumber}.jpeg`;
                     const img = new Image(); img.onload = () => resolve(jpgUrl); 
                     img.onerror = () => {
                         const pngImg = new Image(); pngImg.onload = () => resolve(pngUrl);
